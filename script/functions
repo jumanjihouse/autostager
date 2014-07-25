@@ -1,0 +1,10 @@
+smitty() {
+  echo; echo
+  echo -e "[INFO] $@"
+  "$@"
+}
+
+err() {
+  echo "[ERROR] $@" >&2
+  exit 1
+}
