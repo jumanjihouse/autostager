@@ -31,5 +31,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'thor'
 
+  spec.add_dependency 'json'
   spec.add_dependency 'octokit', '~> 3.0'
 end
