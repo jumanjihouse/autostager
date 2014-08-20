@@ -26,4 +26,19 @@ Or install it yourself as:
 Usage
 -----
 
-TODO: Write usage instructions here
+Create an access token as described at
+https://github.com/octokit/octokit.rb#oauth-access-tokens
+then export a few environment variables:
+
+```
+export repo_slug=ISEexchange/puppet
+export access_token=<your 40-char token>
+export base_dir=/tmp/puppet/environments
+export debug=anything
+```
+
+Then run:
+
+```
+autostager
+```
