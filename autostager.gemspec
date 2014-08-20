@@ -5,7 +5,7 @@ require 'English'
 require 'autostager/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'autostager'
+  spec.name          = 'puppet-autostager'
   spec.version       = Autostager::VERSION
   spec.authors       = ['Paul Morgan']
   spec.email         = ['jumanjiman@gmail.com']
