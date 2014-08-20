@@ -117,6 +117,7 @@ module Autostager
       FileUtils.mkdir_p @base_dir unless File.exist?(@base_dir)
       `git clone -b #{@branch} #{@clone_url} #{@staging_dir} &> /dev/null`
       Dir.chdir @staging_dir
+      add_upstream_remote
       update_submodules
     end
   end
