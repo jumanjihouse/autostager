@@ -141,6 +141,10 @@ module Autostager
     user = client.user
     user.login
 
+    # Handle the default branch differently because
+    # we only ever rebase, never force-push.
+    stage_upstream
+
     # Get open PRs.
     prs = client.pulls(repo_slug)
 
@@ -160,10 +164,6 @@ module Autostager
     Autostager::Timeout.timeout(120, GitTimeout) do
       prs.each { |pr| process_pull pr }
     end
-
-    # Handle the default branch differently because
-    # we only ever rebase, never force-push.
-    stage_upstream
   rescue Octokit::Unauthorized => e
     $stderr.puts e.message
     $stderr.puts 'Did you export "access_token" and "repo_slug"?'
