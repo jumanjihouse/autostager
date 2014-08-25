@@ -94,7 +94,7 @@ module Autostager
         ':boom: Unstaged since %s is dangerously behind upstream.',
         clone_dir(pr),
       )
-      FileUtils.rm_rf staging_dir, secure: true
+      FileUtils.rm_rf staging_dir(pr), secure: true
       client.add_comment repo_slug, pr.number, comment
       client.close_issue repo_slug, pr.number
       log comment
