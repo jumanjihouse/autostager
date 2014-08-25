@@ -106,7 +106,6 @@ module Autostager
 
     def add_upstream_remote
       Dir.chdir @staging_dir
-      return if remote?(@upstream_url)
       log 'add upstream remote'
       `git remote add upstream #{@upstream_url} &> /dev/null`
       `git fetch --prune upstream &> /dev/null`
