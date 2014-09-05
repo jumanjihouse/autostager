@@ -35,6 +35,9 @@ export repo_slug=ISEexchange/puppet
 export access_token=<your 40-char token>
 export base_dir=/tmp/puppet/environments
 export debug=anything
+
+# Override the default 30 second interval.
+export sleep_interval=60
 ```
 
 Then run:

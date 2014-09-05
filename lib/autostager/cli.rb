@@ -21,7 +21,7 @@ module Autostager
     end
 
     def sleep_interval
-      ENV['sleep_interval'] || 30
+      ENV['sleep_interval'].to_i || 30
     end
 
     def trap_interrupt
