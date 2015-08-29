@@ -14,7 +14,4 @@ deployment:
     branch: master
     owner: jumanjihouse
     commands:
-      - cp -f templates/credentials ~/.gem/
-      - chmod 0600 ~/.gem/credentials
-      - sed -i "s/API_KEY/${API_KEY}/" ~/.gem/credentials
-      - gem push puppet-autostager-${VERSION}.gem
+      - script/push.sh
