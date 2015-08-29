@@ -12,8 +12,12 @@ module Autostager
       trap_interrupt
       loop do
         Autostager.run
-        log "Sleep for #{sleep_interval} seconds."
-        sleep sleep_interval
+        if sleep_interval > 0
+          log "Sleep for #{sleep_interval} seconds."
+          sleep sleep_interval
+        else
+          exit!(0)
+        end
       end
     rescue Interrupt
       log 'Exit on interrupt'
