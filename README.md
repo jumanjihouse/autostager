@@ -47,3 +47,14 @@ Then run:
 ```
 autostager
 ```
+
+
+Build workflow
+--------------
+
+We use CircleCI to build and publish to rubygems.org:
+
+![simplified workflow](assets/rubygems-workflow.png)
+
+If build is clean on master branch, CircleCI pushes the
+built gem to [https://rubygems.org/gems/puppet-autostager](https://rubygems.org/gems/puppet-autostager).
