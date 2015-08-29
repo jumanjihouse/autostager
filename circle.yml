@@ -1,7 +1,7 @@
 machine:
   environment:
     # If you change this, you need to change lib/autostager/version.rb
-    VERSION: 0.0.7
+    VERSION: 0.0.8
 
 test:
   post:
@@ -17,5 +17,4 @@ deployment:
       - cp -f templates/credentials ~/.gem/
       - chmod 0600 ~/.gem/credentials
       - sed -i "s/API_KEY/${API_KEY}/" ~/.gem/credentials
-      - "gem yank puppet-autostager -v ${VERSION} || :"
       - gem push puppet-autostager-${VERSION}.gem

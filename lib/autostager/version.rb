@@ -3,5 +3,5 @@
 #
 # If you change this, you need to also change circle.yaml
 module Autostager
-  VERSION = '0.0.7'
+  VERSION = '0.0.8'
 end
