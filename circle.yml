@@ -1,0 +1,21 @@
+machine:
+  environment:
+    # If you change this, you need to change lib/autostager/version.rb
+    VERSION: 0.0.7
+
+test:
+  post:
+    - gem build autostager.gemspec
+
+# https://circleci.com/docs/configuration#deployment
+# https://circleci.com/docs/environment-variables
+deployment:
+  master:
+    branch: master
+    owner: jumanjihouse
+    commands:
+      - cp -f templates/credentials ~/.gem/
+      - chmod 0600 ~/.gem/credentials
+      - sed -i "s/API_KEY/${API_KEY}/" ~/.gem/credentials
+      - "gem yank puppet-autostager -v ${VERSION} || :"
+      - gem push puppet-autostager-${VERSION}.gem
