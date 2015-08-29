@@ -94,7 +94,7 @@ module Autostager
     def update_submodules
       log "update submodules in #{@staging_dir}"
       `git submodule sync &> /dev/null`
-      `git submodule update --init --recursive &> /dev/null`
+      `git submodule update --init &> /dev/null`
     end
 
     def remote?(s)
