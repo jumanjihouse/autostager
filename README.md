@@ -35,6 +35,9 @@ export access_token=<your 40-char token>
 export base_dir=/tmp/puppet/environments
 export debug=anything
 
+# Set a timeout for git operations (default 120 seconds).
+export timeout=180
+
 # Override the default 30 second interval.
 export sleep_interval=60
 

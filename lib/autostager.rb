@@ -126,6 +126,12 @@ module Autostager
     @client ||= Octokit::Client.new(access_token: access_token)
   end
 
+  def timeout_seconds
+    ENV['timeout'].to_i || 120
+  rescue
+    120
+  end
+
   # A list of directories we never discard.
   def safe_dirs
     [
@@ -161,7 +167,7 @@ module Autostager
     end
 
     # Process current PRs.
-    Autostager::Timeout.timeout(120, GitTimeout) do
+    Autostager::Timeout.timeout(timeout_seconds, GitTimeout) do
       prs.each { |pr| process_pull pr }
     end
   rescue Octokit::Unauthorized => e
