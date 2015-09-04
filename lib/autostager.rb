@@ -127,9 +127,12 @@ module Autostager
   end
 
   def timeout_seconds
-    ENV['timeout'].to_i || 120
-  rescue
-    120
+    result = 120
+    if ENV.key?('timeout')
+      result = ENV['timeout'].to_i
+      fail 'timeout must be greater than zero seconds' if result <= 0
+    end
+    result
   end
 
   # A list of directories we never discard.

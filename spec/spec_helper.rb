@@ -4,6 +4,7 @@ require 'mocha/setup'
 require 'English'
 require 'tempfile'
 require 'pp'
+require 'autostager'
 
 RSpec.configure do |c|
   c.mock_with :mocha
