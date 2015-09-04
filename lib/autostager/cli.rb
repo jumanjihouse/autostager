@@ -8,6 +8,7 @@ module Autostager
 
     # Entry point for the app.
     # Stage pull requests on a 30-second loop.
+    # rubocop:disable MethodLength
     def run
       trap_interrupt
       loop do
@@ -23,6 +24,7 @@ module Autostager
       log 'Exit on interrupt'
       exit!(0)
     end
+    # rubocop:enable MethodLength
 
     def sleep_interval
       ENV['sleep_interval'].to_i || 30
