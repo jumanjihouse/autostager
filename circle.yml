@@ -1,7 +1,7 @@
 machine:
   environment:
     # If you change this, you need to change lib/autostager/version.rb
-    VERSION: 0.0.9
+    VERSION: 0.0.10
 
 test:
   post:
