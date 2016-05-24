@@ -2,6 +2,8 @@ Autostager
 ==========
 
 Automatically stage a local directory based on Github pull request.
+<br />
+For non-Ruby versions, see [Ports](#ports) below.
 
 Build status for master branch: [![Circle CI](https://circleci.com/gh/jumanjihouse/autostager/tree/master.svg?style=svg&circle-token=a5b167be1f709009108ca0aaec1613fd9e843cc1)](https://circleci.com/gh/jumanjihouse/autostager/tree/master)
 
@@ -61,3 +63,9 @@ We use CircleCI to build and publish to rubygems.org:
 
 If build is clean on master branch, CircleCI pushes the
 built gem to [https://rubygems.org/gems/puppet-autostager](https://rubygems.org/gems/puppet-autostager).
+
+
+Ports
+-----
+
+* Python: https://github.com/Jfach/autostager
