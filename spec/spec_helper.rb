@@ -25,4 +25,12 @@ RSpec.configure do |c|
   # Make it easy for spec tests to find fixtures.
   c.add_setting :fixture_path, default: nil
   c.fixture_path = File.expand_path(File.join(__FILE__, '..', 'fixtures'))
+
+  # Override some tests from Friction gem.
+  c.add_setting :skips, default: nil
+  c.skips = [
+    :issue_template,
+    :pull_request_template,
+    :code_of_conduct,
+  ]
 end

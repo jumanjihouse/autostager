@@ -20,7 +20,7 @@ end
 
 describe 'contributor friction' do
   it 'there should not be any' do
-    out = capture_stdout { Friction.run! }
+    out = capture_stdout { Friction.run!(skip: RSpec.configuration.skips) }
     out.should =~ /Everything is in order/
   end
 end
