@@ -2,7 +2,7 @@
 set -e
 
 echo "===> Bundling..."
-script/bootstrap
+ci/bootstrap
 
 echo "===> Running rspec"
 bundle exec rake test
