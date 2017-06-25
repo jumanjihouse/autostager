@@ -1,4 +1,9 @@
 #!/bin/sh
 set -e
 
+cat > ci/vars <<EOF
+export VERSION=$(ruby -e 'load "lib/autostager/version.rb"; print Autostager::VERSION')
+EOF
+. ci/vars
+
 gem build autostager.gemspec
