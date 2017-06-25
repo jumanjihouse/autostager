@@ -5,7 +5,7 @@ machine:
 
 test:
   post:
-    - gem build autostager.gemspec
+    - ci/build
 
 # https://circleci.com/docs/configuration#deployment
 # https://circleci.com/docs/environment-variables
@@ -14,4 +14,4 @@ deployment:
     branch: master
     owner: jumanjihouse
     commands:
-      - script/push.sh
+      - ci/publish

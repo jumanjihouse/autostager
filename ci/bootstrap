@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+# Import smitty.
+. ci/functions
+
+rm -f Gemfile.lock
+smitty bundle update 2> /dev/null || smitty bundle install --path=~/.bundle
