@@ -2,8 +2,10 @@
 set -e
 set -u
 
+. vars
+
 mkdir -p ~/.gem/ || :
-cp -f templates/credentials ~/.gem/
+cp -f credentials ~/.gem/
 chmod 0600 ~/.gem/credentials
 sed -i "s/API_KEY/${API_KEY}/" ~/.gem/credentials
 
