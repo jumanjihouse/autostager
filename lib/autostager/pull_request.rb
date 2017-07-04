@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Autostager
   # Convenience class to represent a PR in staging directory.
   class PullRequest

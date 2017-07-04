@@ -1,5 +1,14 @@
 ---
+AllCops:
+  Exclude:
+    - 'Dockerfile*'
 
 # Avoid diff-churn!
-Style/TrailingComma:
+Style/TrailingCommaInArguments:
+  Description: 'Checks for trailing comma in argument lists.'
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+Style/TrailingCommaInLiteral:
+  Description: 'Checks for trailing comma in array and hash literals.'
+  Enabled: true
   EnforcedStyleForMultiline: comma
