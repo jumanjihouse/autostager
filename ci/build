@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+
+docker build --rm -t builder src/
+
+cat > ci/vars <<EOF
+export VERSION=$(docker run --rm -it --entrypoint ruby builder -e 'load "lib/autostager/version.rb"; print Autostager::VERSION')
+EOF
+. ci/vars
