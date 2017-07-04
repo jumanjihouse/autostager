@@ -1,4 +1,6 @@
 machine:
+  ruby:
+    version: 2.4.0
   environment:
     # If you change this, you need to change lib/autostager/version.rb
     VERSION: 0.0.10
