@@ -1,4 +1,3 @@
-# encoding: utf-8
 # vim: set ts=2 sw=2 ai et:
 
 # Does the current user have root privileges?
@@ -32,10 +31,10 @@ end
 
 # Run unit tests before functional tests.
 desc 'Run rspec tests'
-task test: [
-  :rubocop,
-  :unit,
-  :functional,
+task test: %i[
+  rubocop
+  unit
+  functional
 ]
 
 RSpec::Core::RakeTask.new(:unit) do |t|
