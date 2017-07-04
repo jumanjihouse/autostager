@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+cat >> vars <<EOF
+export VERSION=$(ruby -e 'load "lib/autostager/version.rb"; print Autostager::VERSION')
+EOF
+gem build autostager.gemspec

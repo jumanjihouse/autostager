@@ -1,8 +1,2 @@
 #!/usr/bin/env bash
 set -e
-
-echo "===> Bundling..."
-ci/bootstrap
-
-echo "===> Running rspec"
-bundle exec rake test
