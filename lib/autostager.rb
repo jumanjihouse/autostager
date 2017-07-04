@@ -25,9 +25,15 @@ module Autostager
     a_string.gsub(/[^a-z0-9_]/i, '_')
   end
 
+  # Get the name of the default branch for the repo.
+  # This is usually master in git, but
+  # could also be "production" for a puppet repo.
+  def default_branch
+    @client.repo(repo_slug).default_branch
+  end
+
   # rubocop:disable MethodLength,Metrics/AbcSize
   def stage_upstream
-    default_branch = @client.repo(repo_slug).default_branch
     log "===> begin #{default_branch}"
     p = Autostager::PullRequest.new(
       default_branch,
