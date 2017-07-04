@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module Autostager
   # Meta-module to call the correct library method
   # for the version of Ruby on which the autostager runs.
@@ -16,6 +14,7 @@ module Autostager
     # @param block [Block] Code that is subject to expiration.
     #
     # @return [nil]
+    # rubocop:disable Performance/RedundantBlockCall
     def timeout(seconds, err, &block)
       if RUBY_VERSION =~ /1.8/
         require 'system_timer'
@@ -25,5 +24,6 @@ module Autostager
         ::Timeout.timeout(seconds, err) { block.call }
       end
     end
+    # rubocop:enable Performance/RedundantBlockCall
   end
 end

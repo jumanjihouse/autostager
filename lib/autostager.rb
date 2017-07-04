@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'English'
 require 'fileutils'
 require 'autostager/cli'
@@ -11,6 +10,7 @@ require 'octokit'
 require 'pp'
 
 # Top-level module namespace.
+# rubocop:disable Metrics/ModuleLength
 module Autostager
   module_function
 
@@ -26,12 +26,13 @@ module Autostager
   end
 
   # Get the name of the default branch for the repo.
-  # This is usually master in git, but could also be "production" for a puppet repo.
+  # This is usually master in git, but
+  # could also be "production" for a puppet repo.
   def default_branch
-    default_branch = @client.repo(repo_slug).default_branch
+    @client.repo(repo_slug).default_branch
   end
 
-  # rubocop:disable MethodLength
+  # rubocop:disable MethodLength,Metrics/AbcSize
   def stage_upstream
     log "===> begin #{default_branch}"
     p = Autostager::PullRequest.new(
@@ -52,9 +53,9 @@ module Autostager
       ':bangbang: This probably means somebody force-pushed to the branch.',
     )
   end
-  # rubocop:enable MethodLength
+  # rubocop:enable MethodLength,Metrics/AbcSize
 
-  # rubocop:disable MethodLength
+  # rubocop:disable MethodLength,Metrics/AbcSize
   def process_pull(pr)
     log "===> #{pr.number} #{clone_dir(pr)}"
     p = Autostager::PullRequest.new(
@@ -79,9 +80,9 @@ module Autostager
       comment_or_close(p, pr)
     end
   end
-  # rubocop:enable MethodLength
+  # rubocop:enable MethodLength,Metrics/AbcSize
 
-  # rubocop:disable MethodLength
+  # rubocop:disable MethodLength,Metrics/AbcSize
   def comment_or_close(p, pr, add_comment = true)
     if p.up2date?("upstream/#{pr.base.repo.default_branch}")
       if add_comment
@@ -105,7 +106,7 @@ module Autostager
       log comment
     end
   end
-  # rubocop:enable MethodLength
+  # rubocop:enable MethodLength,Metrics/AbcSize
 
   def authenticated_url(s)
     s.dup.sub!(%r{^(https://)(.*)}, '\1' + access_token + '@\2')
@@ -135,7 +136,7 @@ module Autostager
     result = 120
     if ENV.key?('timeout')
       result = ENV['timeout'].to_i
-      fail 'timeout must be greater than zero seconds' if result <= 0
+      raise 'timeout must be greater than zero seconds' if result <= 0
     end
     result
   end
@@ -149,7 +150,7 @@ module Autostager
     ]
   end
 
-  # rubocop:disable MethodLength
+  # rubocop:disable MethodLength,Metrics/AbcSize
   def run
     Octokit.auto_paginate = true
     user = client.user
@@ -183,5 +184,6 @@ module Autostager
     $stderr.puts 'Did you export "access_token" and "repo_slug"?'
     exit(1)
   end
-  # rubocop:enable MethodLength
+  # rubocop:enable MethodLength,Metrics/AbcSize
 end
+# rubocop:enable Metrics/ModuleLength

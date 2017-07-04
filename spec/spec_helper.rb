@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'minitest'
 require 'mocha/setup'
 require 'English'
@@ -14,7 +13,7 @@ RSpec.configure do |c|
   # Allow both "should" and "expect" syntax.
   # https://www.relishapp.com/rspec/rspec-expectations/docs/syntax-configuration
   c.expect_with :rspec do |e|
-    e.syntax = [:should, :expect]
+    e.syntax = %i[should expect]
   end
 
   # Fail overall as soon as first test fails.
