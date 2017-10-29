@@ -1,2 +1,11 @@
 #!/usr/bin/env bash
 set -e
+set -u
+
+. ci/functions.sh
+
+echo
+echo Check every file for things like trailing whitespace.
+# Hint: -v1 shows just the names of offending files.
+#       -v2 shows lines with trailing whitespace.
+ci/check-files -v1
