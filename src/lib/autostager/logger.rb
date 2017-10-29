@@ -22,7 +22,7 @@ module Autostager
     # @param level [Symbol] the priority of the message
     def log(msg, level = :info)
       msg = safe(msg)
-      warn "#{DateTime.now} #{msg}" if ENV.key?('debug')
+      warn "#{Time.now} #{msg}" if ENV.key?('debug')
       Syslog.open($PROGRAM_NAME, Syslog::LOG_PID | Syslog::LOG_CONS) do |s|
         s.send(level, '%s', msg)
       end
