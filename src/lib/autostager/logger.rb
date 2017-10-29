@@ -35,7 +35,7 @@ module Autostager
     #
     # @return [String] A safe copy of the original string.
     def safe(str)
-      URI.unescape(str)
+      CGI.unescape(str)
     end
   end
 end
