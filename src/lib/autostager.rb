@@ -180,8 +180,8 @@ module Autostager
       prs.each { |pr| process_pull pr }
     end
   rescue Octokit::Unauthorized => e
-    $stderr.puts e.message
-    $stderr.puts 'Did you export "access_token" and "repo_slug"?'
+    warn e.message
+    warn 'Did you export "access_token" and "repo_slug"?'
     exit(1)
   end
   # rubocop:enable MethodLength,Metrics/AbcSize
