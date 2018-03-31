@@ -7,3 +7,7 @@ set -o pipefail
 echo
 echo Run file checks
 pre-commit run --all-files --verbose
+
+echo
+echo Run rubocop and rspec
+docker run --rm -it builder bundle exec rake test
