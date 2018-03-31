@@ -1,9 +1,6 @@
-#!/bin/sh
-set -e
-set -u
-
-. ci/functions.sh
-verbosity=1
+#!/bin/bash
+set -eEu
+set -o pipefail
 
 docker build --rm -t builder src/
 

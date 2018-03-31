@@ -1,11 +1,13 @@
-#!/usr/bin/env bash
-set -e
-set -u
+#!/bin/bash
+set -eEu
+set -o pipefail
 
-. ci/functions.sh
+. ci/bootstrap
 
 echo
-echo Check every file for things like trailing whitespace.
-# Hint: -v1 shows just the names of offending files.
-#       -v2 shows lines with trailing whitespace.
-ci/check-files -v1
+echo Run file checks
+pre-commit run --all-files --verbose
+
+echo
+echo Run rubocop and rspec
+docker run --rm -it builder bundle exec rake test

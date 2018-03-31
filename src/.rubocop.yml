@@ -8,7 +8,15 @@ Style/TrailingCommaInArguments:
   Description: 'Checks for trailing comma in argument lists.'
   Enabled: true
   EnforcedStyleForMultiline: comma
-Style/TrailingCommaInLiteral:
-  Description: 'Checks for trailing comma in array and hash literals.'
+Style/TrailingCommaInArrayLiteral:
+  Description: 'Checks for trailing comma in array literals.'
   Enabled: true
   EnforcedStyleForMultiline: comma
+Style/TrailingCommaInHashLiteral:
+  Description: 'Checks for trailing comma in hash literals.'
+  Enabled: true
+  EnforcedStyleForMultiline: comma
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+Style/FormatStringToken:
+  Enabled: false
