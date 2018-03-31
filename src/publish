@@ -1,5 +1,5 @@
-#!/bin/bash
-set -eEu
+#!/bin/sh
+set -eu
 set -o pipefail
 
 . vars
@@ -10,7 +10,7 @@ chmod 0600 ~/.gem/credentials
 sed -i "s/API_KEY/${API_KEY}/" ~/.gem/credentials
 
 output="$(gem search --remote -a puppet-autostager)"
-if [[ "${output}" =~ ${VERSION} ]]; then
+if echo "${output}" | grep -q  "${VERSION}"; then
   # Be informative, but don't fail.
   # This enables to merge changes to non-gem files, such as README.
   echo "puppet-autostager ${VERSION} has already been published."
