@@ -2,8 +2,6 @@
 set -eu
 set -o pipefail
 
-. vars
-
 mkdir -p ~/.gem/ || :
 cp -f credentials ~/.gem/
 chmod 0600 ~/.gem/credentials
