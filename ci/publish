@@ -7,6 +7,5 @@ docker run \
   --rm \
   -it \
   -e API_KEY \
-  -e VERSION \
   --entrypoint /src/publish \
   builder
