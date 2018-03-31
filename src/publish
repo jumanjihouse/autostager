@@ -15,5 +15,5 @@ if echo "${output}" | grep -q  "${VERSION}"; then
   # This enables to merge changes to non-gem files, such as README.
   echo "puppet-autostager ${VERSION} has already been published."
 else
-  gem push 'puppet-autostager-*.gem'
+  gem push "puppet-autostager-${VERSION}.gem"
 fi
