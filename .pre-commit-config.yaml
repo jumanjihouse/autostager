@@ -12,6 +12,8 @@ repos:
         exclude: ^assets/rubygems-workflow.png$
       - id: git-check  # Configure in .gitattributes
       - id: git-dirty  # Configure in .gitignore
+      - id: reek
+      - id: rubocop
       - id: shellcheck
       - id: shfmt
 
