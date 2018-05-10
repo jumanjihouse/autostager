@@ -12,6 +12,8 @@ trap finish EXIT
 main() {
   setup_python_path
   install_precommit
+  add_upstream_git_remote
+  fetch_upstream
 }
 
 finish() {
@@ -39,6 +41,16 @@ install_precommit() {
   fi
 
   pre-commit install-hooks
+}
+
+add_upstream_git_remote() {
+  if ! git remote show upstream &>/dev/null; then
+    git remote add upstream https://github.com/jumanjihouse/autostager.git
+  fi
+}
+
+fetch_upstream() {
+  git fetch upstream
 }
 
 main

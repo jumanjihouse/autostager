@@ -6,7 +6,7 @@ set -o pipefail
 
 echo
 echo Run file checks
-pre-commit run --all-files --verbose
+pre-commit run --all-files --verbose --hook-stage manual
 
 echo
 echo Run rspec
