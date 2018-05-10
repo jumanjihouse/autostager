@@ -1,0 +1,29 @@
+---
+require: rubocop-rspec
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'     # RSpec blocks can be large
+
+Style/IfUnlessModifier:
+  Exclude:
+    - 'Gemfile'       # KISS and avoid diff churn
+
+RSpec/MultipleDescribes:
+  Exclude:
+    - 'spec/facts/*'  # May have 2 describes
+
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/NotToNot:
+  Enabled: false
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
