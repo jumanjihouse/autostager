@@ -45,6 +45,9 @@ export sleep_interval=60
 
 # Or run as a single-shot operation.
 export sleep_interval=0
+
+# Set an alternate git server (default: github.com)
+export git_server=git.example.com
 ```
 
 Then run:

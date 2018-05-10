@@ -20,6 +20,10 @@ module Autostager
     ENV['access_token']
   end
 
+  def git_server
+    ENV['git_server'] || 'github.com'
+  end
+
   # Convert a string into purely alphanumeric characters
   def alphafy(a_string)
     a_string.gsub(/[^a-z0-9_]/i, '_')
@@ -37,10 +41,10 @@ module Autostager
     log "===> begin #{default_branch}"
     p = Autostager::PullRequest.new(
       default_branch,
-      authenticated_url("https://github.com/#{repo_slug}"),
+      authenticated_url("https://#{git_server}/#{repo_slug}"),
       base_dir,
       default_branch,
-      authenticated_url("https://github.com/#{repo_slug}"),
+      authenticated_url("https://#{git_server}/#{repo_slug}"),
     )
     p.clone unless p.staged?
     p.fetch
