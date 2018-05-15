@@ -150,6 +150,7 @@ module Autostager
     [
       '.',
       '..',
+      'master',
       'production',
     ]
   end
