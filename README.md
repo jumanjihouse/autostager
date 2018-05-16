@@ -48,6 +48,7 @@ export sleep_interval=0
 
 # Set an alternate git server (default: github.com)
 export git_server=git.example.com
+export OCTOKIT_API_ENDPOINT=https://git.example.com/api/v3/
 ```
 
 Then run:
